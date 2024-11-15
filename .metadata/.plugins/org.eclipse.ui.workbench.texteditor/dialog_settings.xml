@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="LD2"/>
+		<item key="selection" value="\r\n"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="\r\n"/>
+			<item value="printf"/>
+			<item value="UART"/>
+			<item value="PSC"/>
+			<item value=""/>
+			<item value="static"/>
 			<item value="LD2"/>
 		</list>
 		<list key="replacehistory">
