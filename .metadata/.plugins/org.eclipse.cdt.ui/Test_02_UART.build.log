@@ -1,78 +1,91 @@
-16:48:09 **** Incremental Build of configuration Debug for project Test_02_UART ****
+15:27:26 **** Incremental Build of configuration Debug for project Test_02_UART ****
 make -j24 all 
-arm-none-eabi-gcc "C:/Users/user/source/repos/STM32/MyLib/myLib.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/myLib.d" -MT"Core/Src/myLib.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/myLib.o"
-C:/Users/user/source/repos/STM32/MyLib/myLib.c: In function 'ProgramStart':
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:18:9: warning: implicit declaration of function 'cls' [-Wimplicit-function-declaration]
-   18 |         cls();
-      |         ^~~
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:19:9: warning: implicit declaration of function 'Cursor' [-Wimplicit-function-declaration]
-   19 |         Cursor(0,0);
-      |         ^~~~~~
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:20:9: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
-   20 |         printf("Program Name - %s\r\n", str);
-      |         ^~~~~~
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:8:1: note: include '<stdio.h>' or provide a declaration of 'printf'
-    7 | #include "main.h"
-  +++ |+#include <stdio.h>
-    8 | 
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:20:9: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
-   20 |         printf("Program Name - %s\r\n", str);
-      |         ^~~~~~
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:20:9: note: include '<stdio.h>' or provide a declaration of 'printf'
-C:/Users/user/source/repos/STM32/MyLib/myLib.c: At top level:
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:26:6: warning: conflicting types for 'cls'; have 'void()'
-   26 | void cls()
-      |      ^~~
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:18:9: note: previous implicit declaration of 'cls' with type 'void()'
-   18 |         cls();
-      |         ^~~
-C:/Users/user/source/repos/STM32/MyLib/myLib.c: In function 'cls':
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:29:9: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
-   29 |         printf("\033[2J");
-      |         ^~~~~~
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:29:9: note: include '<stdio.h>' or provide a declaration of 'printf'
-C:/Users/user/source/repos/STM32/MyLib/myLib.c: At top level:
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:31:6: warning: conflicting types for 'Cursor'; have 'void(int,  int)'
-   31 | void Cursor(int x, int y)
-      |      ^~~~~~
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:19:9: note: previous implicit declaration of 'Cursor' with type 'void(int,  int)'
-   19 |         Cursor(0,0);
-      |         ^~~~~~
-C:/Users/user/source/repos/STM32/MyLib/myLib.c: In function 'Cursor':
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:34:9: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
-   34 |         sprintf(buf,"\033[%d;%dH",y,x);
-      |         ^~~~~~~
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:34:9: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:34:9: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:34:9: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:36:9: warning: implicit declaration of function 'puts' [-Wimplicit-function-declaration]
-   36 |         puts(buf);
-      |         ^~~~
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:36:9: note: include '<stdio.h>' or provide a declaration of 'puts'
-C:/Users/user/source/repos/STM32/MyLib/myLib.c: In function '__io_putchar':
-C:/Users/user/source/repos/STM32/MyLib/myLib.c:41:36: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
-   41 |         HAL_UART_Transmit(&huart2, &ch , 1, 10);
-      |                                    ^~~
-      |                                    |
-      |                                    int *
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
+arm-none-eabi-gcc "C:/Users/user/source/repos/STM32/MyLib/LCD1602.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/LCD1602.d" -MT"Core/Src/LCD1602.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/LCD1602.o"
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c: In function 'lcd_command':
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:27:49: warning: pointer targets in passing argument 3 of 'HAL_I2C_Master_Transmit' differ in signedness [-Wpointer-sign]
+   27 |         HAL_I2C_Master_Transmit(hi2c, I2C_ADDR, dd, 4, 10);
+      |                                                 ^~
+      |                                                 |
+      |                                                 char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
                  from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
                  from ../Core/Inc/main.h:30,
-                 from C:/Users/user/source/repos/STM32/MyLib/myLib.c:7:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:745:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'int *'
-  745 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~
+                 from C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:10:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:566:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  566 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:18:26: warning: variable 'n4' set but not used [-Wunused-but-set-variable]
+   18 |         char n1, n2, n3, n4, dd[4];
+      |                          ^~
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:18:22: warning: variable 'n3' set but not used [-Wunused-but-set-variable]
+   18 |         char n1, n2, n3, n4, dd[4];
+      |                      ^~
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c: In function 'lcd_data':
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:41:49: warning: pointer targets in passing argument 3 of 'HAL_I2C_Master_Transmit' differ in signedness [-Wpointer-sign]
+   41 |         HAL_I2C_Master_Transmit(hi2c, I2C_ADDR, dd, 4, 10);
+      |                                                 ^~
+      |                                                 |
+      |                                                 char *
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:363,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:10:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:566:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  566 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c: In function 'lcd_printEx2':
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:78:17: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+   78 |                 strcpy(sBuf, str);
+      |                 ^~~~~~
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:11:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+   10 | #include "main.h"
+  +++ |+#include <string.h>
+   11 | 
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:78:17: warning: incompatible implicit declaration of built-in function 'strcpy' [-Wbuiltin-declaration-mismatch]
+   78 |                 strcpy(sBuf, str);
+      |                 ^~~~~~
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:78:17: note: include '<string.h>' or provide a declaration of 'strcpy'
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c: In function 'i2c_scan':
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:84:25: warning: 'return' with no value, in function returning non-void [-Wreturn-type]
+   84 |         if(hi2c == NULL)return;
+      |                         ^~~~~~
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:82:5: note: declared here
+   82 | int i2c_scan()
+      |     ^~~~~~~~
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:89:25: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   89 |                         printf("  %02x",addr);
+      |                         ^~~~~~
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:11:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+   10 | #include "main.h"
+  +++ |+#include <stdio.h>
+   11 | 
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:89:25: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   89 |                         printf("  %02x",addr);
+      |                         ^~~~~~
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:89:25: note: include '<stdio.h>' or provide a declaration of 'printf'
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:93:25: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   93 |                         printf(" . ");
+      |                         ^~~~~~
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:93:25: note: include '<stdio.h>' or provide a declaration of 'printf'
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:95:35: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   95 |                 if(addr%16 == 15) printf("\r\n");
+      |                                   ^~~~~~
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:95:35: note: include '<stdio.h>' or provide a declaration of 'printf'
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c: In function 'i2c_init':
+C:/Users/user/source/repos/STM32/MyLib/LCD1602.c:54:1: warning: control reaches end of non-void function [-Wreturn-type]
+   54 | }
+      | ^
 arm-none-eabi-gcc -o "Test_02_UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\source\repos\STM32\Test_02_UART\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Test_02_UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: Test_02_UART.elf
  
 arm-none-eabi-size  Test_02_UART.elf 
 arm-none-eabi-objdump -h -S Test_02_UART.elf  > "Test_02_UART.list"
    text	   data	    bss	    dec	    hex	filename
-  31248	    476	   1980	  33704	   83a8	Test_02_UART.elf
+  38468	    476	   2092	  41036	   a04c	Test_02_UART.elf
 Finished building: default.size.stdout
  
 Finished building: Test_02_UART.list
  
 
-16:48:09 Build Finished. 0 errors, 11 warnings. (took 652ms)
+15:27:27 Build Finished. 0 errors, 12 warnings. (took 696ms)
 

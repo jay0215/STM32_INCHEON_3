@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -40,6 +40,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+I2C_HandleTypeDef hi2c1;
+
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
@@ -50,6 +52,7 @@ UART_HandleTypeDef huart2;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART2_UART_Init(void);
+static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -70,12 +73,6 @@ static void MX_USART2_UART_Init(void);
 //
 //}
 //
-//int __io_putchar(int ch)
-//{
-//	HAL_UART_Transmit(&huart2, &ch , 1, 10);
-//	return ch;
-//}
-
 /* USER CODE END 0 */
 
 /**
@@ -107,6 +104,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -114,15 +112,30 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   ProgramStart("UART");
-  int cnt = 0;
+  i2c_init(&hi2c1);
+  i2c_scan();
+
+  i2c_init();
+  int i ;
+  printf("scanf test. input any number :");
+  scanf("%d", &i);
+  printf("Input number = %d\r\n",i);
+
+  char buf[20];
   while (1)
   {
+	  printf("Scanf test. Input my number : ");
+	  scanf("%d",i);
+	  sprintf(buf,"Input number : %d", i);
+	  lcd_printEx2(buf);
+
     /* USER CODE END WHILE */
 
-	  printf("UART Test ... %d\r\n",cnt++);
-	  HAL_Delay(500);
     /* USER CODE BEGIN 3 */
+//	  printf("UART Test ... %d\r\n",cnt++);
+//	  HAL_Delay(500);
   }
+
   /* USER CODE END 3 */
 }
 
@@ -165,6 +178,40 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 100000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
 }
 
 /**
@@ -214,6 +261,7 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin : B1_Pin */
   GPIO_InitStruct.Pin = B1_Pin;

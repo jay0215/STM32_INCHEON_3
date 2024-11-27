@@ -1,0 +1,35 @@
+/*
+ * LCD1602.c
+ *
+ *  Created on: Nov 21, 2024
+ *      Author: user
+ *      Function : 1602 LCD device control
+ */
+//extern I2C_HandleTypeDef *hi2c = NULL;
+//extern I2C_HandleTypeDef *hi2c;
+
+#define I2C_ADDR 0x4E // 0x27 << 1
+
+void lcd_command(char cmd)
+{
+	char n1, n2,dd[4];
+	n1 = cmd & 0xf0; // upper nibble
+	n2 = (cmd & 0x0f) << 4; // lower nibble to upper
+	dd[0] = n1 | 0x0c;
+	dd[1] = n1 | 0x08;
+	dd[2] = n2 | 0x0c;
+	dd[3] = n2 | 0x08;
+	HAL_I2C_MasterTransmit(hi2c, I2C_ADDR, dd, 4, 10);
+
+}
+void lcd_data(char ch)
+{
+
+}
+void lcd_init()
+{
+	lcd_command(0x01); // screen clear
+	lcd_command(0x02); // cursor home
+	lcd_command(0x06);
+	lcd_command(0x0f);
+}
